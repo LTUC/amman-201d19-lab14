@@ -68,6 +68,7 @@ function removeItemFromCart(event) {
   cart.saveToLocalStorage();
   // TODO: Re-draw the cart table
   renderCart();
+  
   }
 }
 
