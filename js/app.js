@@ -28,6 +28,7 @@ Cart.prototype.removeItem = function(item) {
   // Note: You will have to decide what kind of parameter to pass in here!]
 
   this.items.splice(item,1);
+  
 };
 
 const CartItem = function(product, quantity) {
