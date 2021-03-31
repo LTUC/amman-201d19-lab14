@@ -12,9 +12,10 @@ function populateForm() {
   //TODO: Add an <option> tag inside the form's select for each product
   const selectElement = document.getElementById('items');
   for (let i in Product.allProducts) {
-
+    let optionElement=document.createElement('option');
+    selectElement.appendChild(optionElement);
+    optionElement.textContent=Product.allProducts[i].name;
   }
-
 }
 
 // When someone submits the form, we need to add the selected item to the cart
@@ -23,7 +24,7 @@ function populateForm() {
 function handleSubmit(event) {
 
   // TODO: Prevent the page from reloading
-
+  event.preventDefault();
   // Do all the things ...
   addSelectedItemToCart();
   cart.saveToLocalStorage();
@@ -35,18 +36,39 @@ function handleSubmit(event) {
 // TODO: Add the selected item and quantity to the cart
 function addSelectedItemToCart() {
   // TODO: suss out the item picked from the select list
+  let pickedItem=document.getElementById('items').value;
   // TODO: get the quantity
+  let pickedQuantity=document.getElementById('quantity').value;
+  // console.log(pickedItem,pickedQuantity);
   // TODO: using those, add one item to the Cart
+  cart.items.push([pickedItem,pickedQuantity]);
+  // console.log(cart);
 }
 
 // TODO: Update the cart count in the header nav with the number of items in the Cart
-function updateCounter() {}
+function updateCounter() {
+  let cartCountNumber =document.getElementById('itemCount');
+  cartCountNumber.textContent=`(${cart.items.length})`;
+  // console.log(cart.items.length);
+}
 
 // TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
+const previewDiv=document.getElementById('cartContents');
+const ulElement=document.createElement('ul');
+previewDiv.appendChild(ulElement);
+ulElement.textContent=(JSON.parse(localStorage.getItem('cart')));
 function updateCartPreview() {
   // TODO: Get the item and quantity from the form
+  let liElement =document.createElement('li');
+  ulElement.appendChild(liElement);
   // TODO: Add a new element to the cartContents div with that information
+  for (let i = 0; i < cart.items.length; i++) {
+    liElement.textContent = cart.items[i];
+  }
+  document.getElementById("catalog").reset();
 }
+
+
 
 // Set up the "submit" event listener on the form.
 // This is the trigger for the app. When a user "submits" the form, it will
@@ -57,3 +79,4 @@ catalogForm.addEventListener('submit', handleSubmit);
 // Before anything else of value can happen, we need to fill in the select
 // drop down list in the form.
 populateForm();
+// document.getElementById("catalog").reset();
