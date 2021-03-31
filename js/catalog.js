@@ -34,6 +34,7 @@ function populateForm()
 function handleSubmit(event) {
 
   // TODO: Prevent the page from reloading
+  event.prenevtDefault();
 
   // Do all the things ...
   addSelectedItemToCart();
@@ -46,8 +47,11 @@ function handleSubmit(event) {
 // TODO: Add the selected item and quantity to the cart
 function addSelectedItemToCart() {
   // TODO: suss out the item picked from the select list
+  let item=target.items.value;
   // TODO: get the quantity
+  let quantity=target.quantity.value;
   // TODO: using those, add one item to the Cart
+  cart.addItem(item,quantity);
 }
 
 // TODO: Update the cart count in the header nav with the number of items in the Cart
