@@ -75,3 +75,7 @@ generateCatalog();
 
 settingItems();
     const g= JSON.parse(localStorage.getItem('name of products'));
+
+
+
+ 
