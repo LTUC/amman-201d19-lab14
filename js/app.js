@@ -13,18 +13,18 @@ this.items.push (new CartItem(product, quantity));
 
 Cart.prototype.saveToLocalStorage = function() {
   // TODO: Fill in this instance method to save the contents of the cart to localStorage
-  let strigObj = localStorage.getItem('Cart');
-  let normalObj = JSON.parse (strigObj);
-  if (normalObj !== null){
-    Product.allProducts = normalObj;
-  
+  // let strigObj = localStorage.getItem('cart');
+  // let normalObj = JSON.parse (strigObj);
+  // if (normalObj !== null){
+  //   Product.allProducts = normalObj;
+  localStorage.setItem('cart', JSON.stringify(this.items));
+
 }
-localStorage.setItem('Cart', JSON.stringify(this.items));
 
 
 // let data = JSON.stringify(this.items);
 // localStorage.setItem('Cart', data);
-};
+
 
 Cart.prototype.removeItem = function(item) {
   // TODO: Fill in this instance method to remove one item from the cart.
