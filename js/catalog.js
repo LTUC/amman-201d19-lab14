@@ -34,7 +34,7 @@ function handleSubmit(event) {
   cart.saveToLocalStorage();
   updateCounter();
   updateCartPreview(event);
- 
+  catalogForm.reset('');
 
 }
 
@@ -43,13 +43,9 @@ function addSelectedItemToCart(e) {
   // TODO: suss out the item picked from the select list
   let x=e.target[1].value;
 //  //console.log("x=",x);
-
   // TODO: get the quantity
   let y=e.target[2].value;
   // //console.log("y=",y);
-  
-
-
   // TODO: using those, add one item to the Cart
   cart.addItem(x,y);
   //console.log(cart);
