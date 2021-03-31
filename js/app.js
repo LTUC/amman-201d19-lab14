@@ -55,5 +55,19 @@ function generateCatalog() {
   new Product('assets/wine-glass.jpg', 'Wine Glass');
 }
 
+function settingItems()
+{ let n= JSON.stringify (Product.allProducts);
+  localStorage.setItem('name of products', n);
+
+}
+
+
 // Initialize the app by creating the big list of products with images and names
 generateCatalog();
+
+
+
+
+
+settingItems();
+    const g= JSON.parse(localStorage.getItem('name of products'));
