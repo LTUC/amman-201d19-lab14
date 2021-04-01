@@ -35,8 +35,6 @@ function handleSubmit(event) {
   updateCounter();
   updateCartPreview();
 
-
-
 }
 
 // TODO: Add the selected item and quantity to the cart
@@ -51,7 +49,7 @@ function addSelectedItemToCart() {
   let item = {
     product: selectElement,
     quantity: selectQuantity,
-  } 
+  }
   cart.items.push(item);
   console.log(cart)
 
@@ -71,8 +69,9 @@ function updateCartPreview() {
   // TODO: Get the item and quantity from the form
   // TODO: Add a new element to the cartContents div with that information
   
-  let cartContents = document.getElementById('cartContents');
-  cartContents.textContent = JSON.stringify(cart.items);
+  let cartContents= document.getElementById('cartContents');
+  let liEl=cartContents.appendChild(document.createElement('li'));
+  liEl.textContent=`Product: ${cart.items[counter-1].product} Quantity: ${cart.items[counter-1].quantity}`;
 
 // `${cart.items.quantity} ${cart.items.product} ` مش صح
 }
