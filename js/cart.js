@@ -16,7 +16,13 @@ function renderCart() {
   loadCart();
   clearCart();
   showCart();
-  updateCounter();
+
+  const itemCount = document.getElementById('itemCount');
+  if (!cart.items.length - 1) {
+    itemCount.textContent = ` (${cart.items.length})`;
+  } else {
+    itemCount.textContent = ``;
+  }
 }
 
 // TODO: Remove all of the rows (tr) in the cart table (tbody)
@@ -57,16 +63,6 @@ function showCart() {
     tr.appendChild(deletedTd);
     tr.appendChild(quantityTd);
     tr.appendChild(addedTd);
-  }
-}
-
-// TODO: Update the cart count in the header nav with the number of items in the Cart
-function updateCounter() {
-  const itemCount = document.getElementById('itemCount');
-  if (!cart.items.length - 1) {
-    itemCount.textContent = ` (${cart.items.length})`;
-  } else {
-    itemCount.textContent = ``;
   }
 }
 
