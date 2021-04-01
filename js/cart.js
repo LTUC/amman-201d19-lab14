@@ -65,6 +65,8 @@ function updateCounter() {
   const itemCount = document.getElementById('itemCount');
   if (!cart.items.length - 1) {
     itemCount.textContent = ` (${cart.items.length})`;
+  } else {
+    itemCount.textContent = ``;
   }
 }
 
